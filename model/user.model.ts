@@ -1,14 +1,10 @@
-// prisma/user.model.ts
-
-import { Prisma } from '.prisma/client';
-
-export class User implements Prisma.UserCreateInput {
+export class User {
   id?: number;
   createdAt?: Date;
   updatedAt?: Date;
-  lastActivityAt?: Date;
+  lastActivityAt?: Date | null;
   email: string;
-  emailVerified?: Date;
+  emailVerified?: Date | null;
   name: string;
   password: string;
   workspace: string;
@@ -21,9 +17,5 @@ export class User implements Prisma.UserCreateInput {
 
 
 
-export class UserCreateInput implements Prisma.UserCreateInput {
-  email: string;
-  name: string;
-  password: string;
-  // ... other fields needed for create
-}
+
+

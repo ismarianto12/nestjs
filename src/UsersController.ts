@@ -1,8 +1,9 @@
 import { Controller, Get, Post, Put, Delete, Body, Param } from '@nestjs/common';
 import { PrismaService } from '../service/prismaservice';
-import { User, UserCreateInput } from 'model/user.model';
+import { User } from '../model/user.model';
 
 @Controller('users')
+
 export class UsersController {
   constructor(private readonly prismaService: PrismaService) { }
 
@@ -19,7 +20,7 @@ export class UsersController {
   }
 
   @Post()
-  async createUser(@Body() user: UserCreateInput) {
+  async createUser(@Body() user) {
     return this.prismaService.user.create({
       data: user,
     });
