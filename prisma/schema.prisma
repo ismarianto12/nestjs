@@ -1,0 +1,35 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "mysql://root@localhost:3308/nestjs"
+}
+
+
+
+// prisma/schema.prisma
+
+model User {
+  id             Int      @id @default(autoincrement())
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  lastActivityAt DateTime
+  email          String
+  emailVerified  DateTime?
+  name           String
+  password       String
+  workspace      String
+  workspaceld    String
+  role           Role    @default(user)
+  Session        String
+  Account        String
+  ApiToken       String
+}
+
+enum Role {
+  admin
+  user
+}
+
